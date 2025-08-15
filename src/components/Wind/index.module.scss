@@ -1,0 +1,110 @@
+.infoWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span:nth-child(2) {
+      font-weight: 700;
+    }
+  }
+}
+
+.wrapperCompass {
+  --heightCircle: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--heightCircle);
+  padding: 1rem;
+
+  .compass {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+
+    .dash {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 10px;
+      height: 0.1rem;
+      transform-origin: calc(var(--heightCircle) / 2) center;
+      background-color: var(--border-cell-color);
+    }
+
+    .duration {
+      font-size: 1rem;
+      position: absolute;
+    }
+
+    .arrow {
+      $color: var(--font-color);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: inherit;
+      background-color: $color;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        border-bottom: 1rem solid $color;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0.7rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: $color;
+      }
+    }
+
+    .blockInfo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-content: center;
+      text-align: center;
+      width: calc(var(--heightCircle) / 2);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+
+      &::before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapperCompass {
+    --heightCircle: 25vw;
+
+    .compass .dash {
+      width: 8px;
+    }
+  }
+}

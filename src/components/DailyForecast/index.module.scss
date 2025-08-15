@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  border-top: 2px solid var(--border-cell-color);
+
+  .day {
+    width: 6rem;
+  }
+
+  .iconWrapper {
+    height: 90%;
+    width: 100px;
+  }
+
+  .temperature {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 30%;
+    min-width: max-content;
+
+    div {
+      display: flex;
+      gap: 15px;
+      :first-child {
+        opacity: 0.4;
+      }
+    }
+  }
+}

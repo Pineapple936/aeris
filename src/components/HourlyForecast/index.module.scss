@@ -1,0 +1,43 @@
+.wrapper {
+  gap: 15px;
+  height: 140px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+.card {
+  flex: 0 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  font-size: 1.3rem;
+
+  .time {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    gap: 30px;
+    height: 100px;
+  }
+
+  .card {
+    flex: 0 0 50px;
+  }
+}

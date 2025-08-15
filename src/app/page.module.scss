@@ -1,0 +1,33 @@
+.wrapper {
+  * {
+    animation: spawnContent 0.6s ease;
+  }
+}
+
+.info {
+  $gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  .line {
+    display: flex;
+    gap: $gap;
+    min-height: 160px;
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+@keyframes spawnContent {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

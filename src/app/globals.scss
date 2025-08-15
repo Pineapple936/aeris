@@ -1,0 +1,153 @@
+:root {
+  --font-color: rgb(200, 200, 200);
+  --background-color-website: black;
+  --cell-background-color: rgba(255, 255, 255, 0.1);
+  --border-cell-color: rgba(255, 255, 255, 0.4);
+  --scrollbar-color: rgb(100, 100, 100);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 18px;
+  background: var(--background-color-website);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--font-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+button,
+input {
+  color: var(--font-color);
+  font-weight: 900;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--border-cell-color);
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.opacityText {
+  opacity: 0.4;
+}
+
+.weatherCell {
+  $padding: 10px;
+  $borderRadius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  border-radius: $borderRadius;
+  background: var(--cell-background-color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  .colorCell {
+    position: relative;
+    background-color: black;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--cell-background-color);
+      z-index: -1;
+    }
+  }
+
+  .title {
+    @extend .colorCell;
+    position: sticky;
+    top: 3rem;
+    width: 100%;
+    padding: $padding;
+    box-sizing: border-box;
+    z-index: 10;
+    will-change: transform;
+    transform: translate(0, 0, 0);
+
+    &::before {
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
+    }
+
+    p {
+      @extend .opacityText;
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+
+    i {
+      margin-right: 5px;
+      font-weight: 100;
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $padding;
+    padding-top: 0;
+  }
+
+  .description {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 1.04rem;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 15px;
+  }
+}
