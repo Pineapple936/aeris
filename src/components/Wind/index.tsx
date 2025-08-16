@@ -57,7 +57,9 @@ export default function Wind() {
                 className={`${style.direction} colorCell`}
                 style={{ "--deg": `${item.deg}deg` } as React.CSSProperties}
               >
-                {item.label}
+                <span>
+                  {item.label}
+                </span>
               </b>
             ))}
             <div

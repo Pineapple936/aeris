@@ -23,6 +23,7 @@
   align-items: center;
   height: var(--heightCircle);
   padding: 1rem;
+  overflow: hidden;
 
   .compass {
     position: relative;
@@ -46,13 +47,18 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(var(--deg))
-        translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2))
-        rotate(calc(-1 * var(--deg)));
+        translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2));
       display: grid;
       place-content: center;
       width: 2rem;
+      height: 7rem;
       aspect-ratio: 1 / 1;
       font-size: 0.9rem;
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+
+      span {
+        transform: rotate(calc(-1 * var(--deg)));
+      }
     }
 
     .arrow {

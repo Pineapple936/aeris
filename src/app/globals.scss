@@ -100,8 +100,6 @@ hr {
   padding-bottom: 10px;
   border-radius: $borderRadius;
   background: var(--cell-background-color);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 
   .colorCell {
     position: relative;
