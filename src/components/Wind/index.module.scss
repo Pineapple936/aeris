@@ -46,11 +46,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(var(--deg))
-        translateY(calc(var(--heightCircle) / -2 + 25%))
+        translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2))
         rotate(calc(-1 * var(--deg)));
       display: grid;
       place-content: center;
-      width: 1rem;
+      width: 2rem;
       aspect-ratio: 1 / 1;
       font-size: 0.9rem;
     }
