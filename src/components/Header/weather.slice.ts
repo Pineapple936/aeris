@@ -96,7 +96,7 @@ export const changeCityAndFetchWeather = createAsyncThunk(
   async (city: string) => {
     const data = await getWeather(city);
     return data;
-  }
+  },
 );
 
 export const weatherReducer = createReducer(initialStateWeather, (builder) => {

@@ -6,7 +6,9 @@ export default function UVIndex() {
   return (
     <article className="weatherCell">
       <header className="title">
-          <p><i className="bx bxs-sun" /> УФ-ИНДЕКС</p>
+        <p>
+          <i className="bx bxs-sun" /> УФ-ИНДЕКС
+        </p>
       </header>
       <div className="content">
         <h3>{uvi.indicator}</h3>

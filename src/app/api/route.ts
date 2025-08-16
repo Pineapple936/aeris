@@ -44,7 +44,7 @@ export async function POST(req: Request) {
 
   try {
     const geoRes = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${process.env.API_KEY_WEATHERLY}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${process.env.API_KEY_WEATHERLY}`,
     );
     const latLon = await geoRes.json();
 
@@ -55,10 +55,10 @@ export async function POST(req: Request) {
     const [weather, forecast]: [WeatherApiResponse, ForecastApiResponse] =
       await Promise.all([
         fetch(
-          `https://api.openweathermap.org/data/2.8/onecall?lat=${latLon[0].lat}&lon=${latLon[0].lon}&exclude=minutely,hourly,alerts&appid=${process.env.API_KEY_WEATHERLY}&units=metric&lang=ru`
+          `https://api.openweathermap.org/data/2.8/onecall?lat=${latLon[0].lat}&lon=${latLon[0].lon}&exclude=minutely,hourly,alerts&appid=${process.env.API_KEY_WEATHERLY}&units=metric&lang=ru`,
         ).then((response) => response.json()),
         fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${latLon[0].lat}&lon=${latLon[0].lon}&appid=${process.env.API_KEY_WEATHERLY}&units=metric&lang=ru`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${latLon[0].lat}&lon=${latLon[0].lon}&appid=${process.env.API_KEY_WEATHERLY}&units=metric&lang=ru`,
         ).then((response) => response.json()),
       ]);
 
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
       visibility: {
         value: Math.round(weather.current.visibility / 1000),
         category: getCategoryVisibility(
-          Math.round(weather.current.visibility / 1000)
+          Math.round(weather.current.visibility / 1000),
         ),
       },
       humidity: {
@@ -125,22 +125,22 @@ function getCategoryUVIndex(indicator: number): string {
   return indicator <= 2
     ? "Низкий"
     : indicator <= 5
-    ? "Умеренный"
-    : indicator <= 7
-    ? "Высокий"
-    : indicator <= 10
-    ? "Очень высокий"
-    : "Экстремальный";
+      ? "Умеренный"
+      : indicator <= 7
+        ? "Высокий"
+        : indicator <= 10
+          ? "Очень высокий"
+          : "Экстремальный";
 }
 
 function getCategoryVisibility(value: number): string {
   return value < 1
     ? "Очень плохая"
     : value < 2
-    ? "Плохая"
-    : value < 4
-    ? "Умеренная"
-    : value < 10
-    ? "Хорошая"
-    : "Идеальная";
+      ? "Плохая"
+      : value < 4
+        ? "Умеренная"
+        : value < 10
+          ? "Хорошая"
+          : "Идеальная";
 }

@@ -17,6 +17,7 @@
 
 .wrapperCompass {
   --heightCircle: 170px;
+  --widthDash: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,15 +34,27 @@
       position: absolute;
       top: 50%;
       left: 0;
-      width: 10px;
+      width: var(--widthDash);
       height: 0.1rem;
       transform-origin: calc(var(--heightCircle) / 2) center;
       background-color: var(--border-cell-color);
+      opacity: 0.5;
     }
 
-    .duration {
-      font-size: 1rem;
+    .direction {
+      --deg: 0;
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(var(--deg))
+        translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2))
+        rotate(calc(-1 * var(--deg)));
+      display: grid;
+      place-content: center;
+      width: 1rem;
+      aspect-ratio: 1 / 1;
+      padding: 3px;
+      font-size: 0.8rem;
     }
 
     .arrow {
@@ -57,7 +70,7 @@
       &::before {
         content: "";
         position: absolute;
-        top: -10px;
+        top: 0px;
         left: 50%;
         transform: translateX(-50%);
         width: 0;
@@ -102,9 +115,6 @@
 @media (max-width: 500px) {
   .wrapperCompass {
     --heightCircle: 25vw;
-
-    .compass .dash {
-      width: 8px;
-    }
+    --widthDash: 7px;
   }
 }
