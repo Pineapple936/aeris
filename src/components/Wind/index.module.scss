@@ -48,10 +48,11 @@
       left: 50%;
       transform: translate(-50%, -50%) rotate(var(--deg))
         translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2));
-      display: grid;
-      place-content: center;
-      width: 2rem;
-      height: 7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 10rem;
       aspect-ratio: 1 / 1;
       font-size: 0.9rem;
       clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
@@ -115,6 +116,6 @@
 @media (max-width: 500px) {
   .wrapperCompass {
     --heightCircle: 25vw;
-    --widthDash: 7px;
+    --widthDash: 8px;
   }
 }
