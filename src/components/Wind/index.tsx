@@ -26,7 +26,7 @@ export default function Wind() {
         </p>
       </header>
       <div className="content">
-        <div style={{ display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "10px" }}>
           <div className={style.infoWrapper}>
             <p className="description">
               <span>Ветер</span>

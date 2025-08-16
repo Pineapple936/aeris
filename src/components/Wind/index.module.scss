@@ -102,10 +102,6 @@
       width: calc(var(--heightCircle) / 2);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-
-      &::before {
-        border-radius: 50%;
-      }
     }
   }
 }

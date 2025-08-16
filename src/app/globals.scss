@@ -89,13 +89,21 @@ hr {
 
   .colorCell {
     position: relative;
-    background-color: black;
 
-    &::before {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       inset: 0;
+      border-radius: inherit;
+    }
+
+    &::before {
       background-color: var(--cell-background-color);
+      z-index: 0;
+    }
+    &::after {
+      background-color: var(--background-color-website);
       z-index: -1;
     }
   }
@@ -110,10 +118,11 @@ hr {
     z-index: 10;
     will-change: transform;
     transform: translate(0, 0, 0);
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
 
-    &::before {
-      border-top-left-radius: $borderRadius;
-      border-top-right-radius: $borderRadius;
+    &::after {
+      border-radius: 0;
     }
 
     p {
