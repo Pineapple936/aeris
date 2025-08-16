@@ -12,6 +12,7 @@ const DIRECTIONS: Direction[] = [
   { label: "Ю", deg: 180 },
   { label: "З", deg: 270 },
 ];
+const COUNT_DASH = 72;
 
 export default function Wind() {
   const wind = useAppSelector((state) => state.weather.now.wind);
@@ -44,21 +45,21 @@ export default function Wind() {
           </div>
           <div className={style.wrapperCompass}>
             <div className={style.compass}>
-              {[...Array(36)].map((_, i) => (
+              {[...Array(COUNT_DASH)].map((_, i) => (
                 <div
                   key={`dash-${i}`}
                   className={style.dash}
-                  style={{ transform: `rotate(${i * 10}deg)` }}
+                  style={{ transform: `rotate(${i * 360 / COUNT_DASH}deg)` }}
                 />
               ))}
               {DIRECTIONS.map((item, indx) => (
-                <span
+                <b
                   key={`direction-${indx}`}
                   className={`${style.direction} colorCell`}
                   style={{ "--deg": `${item.deg}deg` } as React.CSSProperties}
                 >
                   {item.label}
-                </span>
+                </b>
               ))}
               <div
                 className={style.arrow}
