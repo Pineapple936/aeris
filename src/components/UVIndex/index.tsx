@@ -21,13 +21,13 @@ export default function UVIndex() {
             }
           }
         />
-        <p className="description">{getFooterText(uvi.category)}</p>
+        <p className="description">{getDescriptionText(uvi.category)}</p>
       </div>
     </article>
   );
 }
 
-function getFooterText(category: string): string {
+function getDescriptionText(category: string): string {
   const hour = new Date().getHours();
   if (hour < 9) return "Защищайтесь от солнца с 09:00 до 16:00";
   else if (hour < 16 && category != "Низкий")

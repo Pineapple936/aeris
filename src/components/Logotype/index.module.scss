@@ -4,9 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   width: 100%;
-  height: 3rem;
+  height: var(--heightLogotype);
   margin-top: 10px;
   background-color: var(--background-color-website);
   z-index: 11;

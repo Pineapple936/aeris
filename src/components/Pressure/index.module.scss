@@ -3,10 +3,9 @@
   position: relative;
   height: $height;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
   margin: auto;
 
-  .current {
+  .currentValue {
     position: absolute;
     top: -5px;
     left: 50%;

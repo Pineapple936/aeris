@@ -29,7 +29,7 @@ export default function FeelsLike() {
         <h1>{feelsLike}°</h1>
         {difference.value != 0 && (
           <>
-            <p style={{ opacity: ".5", fontSize: "1.2rem" }}>
+            <p className="opacityText" style={{ fontSize: "1.2rem" }}>
               Фактически: {currentTemperature}°
             </p>
             <article
@@ -44,23 +44,21 @@ export default function FeelsLike() {
               }
             >
               <div
-                className={style.line}
+                className={style.progressLine}
                 style={{
                   [difference.comparison == "less" ? "right" : "left"]: "0",
-                  width: `${Math.min(Math.max(Math.abs(difference.value) * 10, 30), 100)}%`,
+                  width: `clamp(25%, ${Math.abs(difference.value) * 10}%, 100%)`,
                 }}
               />
               <div
                 className={style.temperature}
                 style={{
                   [difference.comparison == "less" ? "right" : "left"]:
-                    `${Math.min(Math.max(Math.abs(difference.value) * 10, 35), 100)}%`,
+                    `clamp(25%, ${Math.abs(difference.value) * 10}%, 100%)`,
                 }}
               >
-                <i
-                  className={`bx bx-${difference.comparison == "less" ? "down" : "up"}-arrow-alt`}
-                />
-                {difference.value}°
+                {difference.comparison == "less" ? "↓" : "↑"} {difference.value}
+                °
               </div>
             </article>
             <p className="description">

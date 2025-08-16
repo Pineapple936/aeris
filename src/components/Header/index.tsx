@@ -10,9 +10,9 @@ export function Header() {
   return (
     <section className={style.wrapper}>
       <HeaderCityName />
-      <p className={style.temperature}>
-        {weather.now.temperature ? weather.now.temperature + "°" : ""}
-      </p>
+      {weather.now.temperature && (
+        <p className={style.temperature}>{weather.now.temperature}°</p>
+      )}
       <p className={style.description}>{weather.now.description}</p>
     </section>
   );
@@ -43,6 +43,7 @@ export function HeaderCityName() {
             onKeyDown={handleInput}
             onBlur={() => setWindow("button")}
             autoFocus
+            style={{ animation: "none" }}
           />
         )}
       </article>

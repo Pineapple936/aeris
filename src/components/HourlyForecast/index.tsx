@@ -18,7 +18,7 @@ export default function HourlyForecast() {
         style={{ flexDirection: "row" }}
       >
         {weatherHourly.map((item, indx) => (
-          <li key={`weatherHourly${indx}`} className={style.card}>
+          <li key={`weatherHourly-${indx}`} className={style.card}>
             <p className={style.time}>{indx === 0 ? "Сейчас" : item.hour}</p>
             <div style={{ flexGrow: "1" }}>
               <IconWeather name={item.icon} probablyRain={item.pop} />

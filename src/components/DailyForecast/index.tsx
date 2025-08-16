@@ -14,16 +14,16 @@ export default function DailyForecast() {
       </header>
       <ul className="content" style={{ paddingBottom: "0" }}>
         {weatherDaily.map((item, indx) => (
-          <li key={`weatherDaily${indx}`} className={style.card}>
-            <p className={style.day}>{indx === 0 ? "Сегодня" : item.day}</p>
+          <li key={`weatherDaily-${indx}`} className={style.lineInfo}>
+            <p className={style.dayOfTheWeek}>
+              {indx === 0 ? "Сегодня" : item.day}
+            </p>
             <div className={style.iconWrapper}>
               <IconWeather name={item.icon} probablyRain={item.pop} />
             </div>
             <div className={style.temperature}>
-              <div>
-                <span>{item.min}°</span>
-                <span>{item.max}°</span>
-              </div>
+              <span className="opacityText">{item.min}°</span>
+              <span>{item.max}°</span>
             </div>
           </li>
         ))}

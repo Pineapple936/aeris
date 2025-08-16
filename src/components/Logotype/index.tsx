@@ -4,9 +4,9 @@ import style from "./index.module.scss";
 export default function Logotype() {
   return (
     <section className={style.logotypeWebsite}>
-      <div className={style.image}>
+      <article className={style.image}>
         <Image src="/iconWebsite.jpg" alt="логотип сайта Aeris" fill />
-      </div>
+      </article>
     </section>
   );
 }

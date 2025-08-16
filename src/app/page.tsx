@@ -44,7 +44,7 @@ function HomeContent() {
   if (status === Status.failed) return <HeaderCityName />;
   else if (status === Status.succeeded)
     return (
-      <div className={style.wrapper}>
+      <>
         <Header />
         <section className={style.info}>
           <HourlyForecast />
@@ -64,6 +64,6 @@ function HomeContent() {
           </div>
         </section>
         <Footer />
-      </div>
+      </>
     );
 }

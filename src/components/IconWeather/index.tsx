@@ -12,14 +12,7 @@ export default function IconWeather({
 }) {
   return (
     <div className={style.icon}>
-      <div
-        className={
-          PRECIPITATION.includes(name)
-            ? style.precipitation
-            : style.noPrecipitation
-        }
-        style={{ aspectRatio: name == "Smoke" ? "41 / 32" : "1 / 1" }}
-      >
+      <div className={style.image}>
         <Image src={`/icons/${name}.png`} alt={name} fill />
       </div>
       {PRECIPITATION.includes(name) && (

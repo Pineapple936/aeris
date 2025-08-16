@@ -25,53 +25,51 @@ export default function Wind() {
           ВЕТЕР
         </p>
       </header>
-      <div className="content">
-        <div style={{ display: "flex", gap: "10px" }}>
-          <div className={style.infoWrapper}>
-            <p className="description">
-              <span>Ветер</span>
-              <span className="opacityText">{wind.speed} м/с</span>
-            </p>
-            <hr />
-            <p className="description">
-              <span>Порывы ветра</span>
-              <span className="opacityText">{wind.gust} м/с</span>
-            </p>
-            <hr />
-            <p className="description">
-              <span>Направление</span>
-              <span className="opacityText">{wind.deg}°</span>
-            </p>
-          </div>
-          <div className={style.wrapperCompass}>
-            <div className={style.compass}>
-              {[...Array(COUNT_DASH)].map((_, i) => (
-                <div
-                  key={`dash-${i}`}
-                  className={style.dash}
-                  style={{ transform: `rotate(${i * 360 / COUNT_DASH}deg)` }}
-                />
-              ))}
-              {DIRECTIONS.map((item, indx) => (
-                <b
-                  key={`direction-${indx}`}
-                  className={`${style.direction} colorCell`}
-                  style={{ "--deg": `${item.deg}deg` } as React.CSSProperties}
-                >
-                  {item.label}
-                </b>
-              ))}
+      <div className="content" style={{ flexDirection: "row" }}>
+        <div className={style.infoWrapper}>
+          <p className="description">
+            <span>Ветер</span>
+            <span className="opacityText">{wind.speed} м/с</span>
+          </p>
+          <hr />
+          <p className="description">
+            <span>Порывы ветра</span>
+            <span className="opacityText">{wind.gust} м/с</span>
+          </p>
+          <hr />
+          <p className="description">
+            <span>Направление</span>
+            <span className="opacityText">{wind.deg}°</span>
+          </p>
+        </div>
+        <div className={style.wrapperCompass}>
+          <div className={style.compass}>
+            {[...Array(COUNT_DASH)].map((_, i) => (
               <div
-                className={style.arrow}
-                style={{ transform: `rotate(${wind.deg + 180}deg)` }}
+                key={`dash-${i}`}
+                className={style.dash}
+                style={{ transform: `rotate(${(i * 360) / COUNT_DASH}deg)` }}
               />
-              <div className={`${style.blockInfo} colorCell`}>
-                <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
-                  {wind.speed}
-                  <br />
-                  м/с
-                </p>
-              </div>
+            ))}
+            {DIRECTIONS.map((item, indx) => (
+              <b
+                key={`direction-${indx}`}
+                className={`${style.direction} colorCell`}
+                style={{ "--deg": `${item.deg}deg` } as React.CSSProperties}
+              >
+                {item.label}
+              </b>
+            ))}
+            <div
+              className={style.arrow}
+              style={{ transform: `rotate(${wind.deg + 180}deg)` }}
+            />
+            <div className={`${style.blockInfo} colorCell`}>
+              <p style={{ fontSize: "1.1rem", fontWeight: "600" }}>
+                {wind.speed}
+                <br />
+                м/с
+              </p>
             </div>
           </div>
         </div>

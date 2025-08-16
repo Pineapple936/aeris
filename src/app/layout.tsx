@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "погода сегодня",
     "погода завтра",
   ],
-  authors: [{ name: "Aeris Team" }],
+  authors: [{ name: "Pineapple936" }],
   openGraph: {
     title: "Aeris — Прогноз погоды онлайн",
     description:
