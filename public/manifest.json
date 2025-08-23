@@ -1,0 +1,15 @@
+{
+  "name": "Aeris",
+  "short_name": "Aeris",
+  "description": "Актуальный прогноз погоды на сегодня, завтра и неделю",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "black",
+  "icons": [
+    {
+      "src": "/favicon.jpg",
+      "sizes": "550x550",
+      "type": "image/jpg"
+    }
+  ]
+}

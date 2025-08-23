@@ -1,0 +1,47 @@
+.scroll {
+  --widthCard: 6.25rem;
+  --heightChart: 3rem;
+  --gapCard: 0.9rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 0.3125rem;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+
+  .wrapperTemperature {
+    display: flex;
+    gap: var(--gapCard);
+    height: 7.5rem;
+    margin-bottom: 0.4rem;
+
+    .card {
+      flex: 0 0 var(--widthCard);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      height: 100%;
+      padding-top: 0.4rem;
+    }
+
+    .card:nth-child(even) {
+      border-radius: 0.625rem;
+      padding-bottom: calc(var(--heightChart));
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+  }
+
+  .wrapperChart {
+    width: calc(var(--gapCard) * 39 + var(--widthCard) * 40);
+    height: var(--heightChart);
+  }
+}

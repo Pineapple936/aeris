@@ -1,0 +1,15 @@
+.info {
+  $gap: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  .line {
+    display: flex;
+    gap: $gap;
+
+    > * {
+      flex: 1;
+    }
+  }
+}

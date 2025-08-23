@@ -1,0 +1,95 @@
+@use "@/styles/mixin" as *;
+
+:root {
+  --font-color: rgb(200, 200, 200);
+  --background-color-website: black;
+  --cell-background-color: rgba(255, 255, 255, 0.1);
+  --border-cell-color: rgba(255, 255, 255, 0.25);
+  --scrollbar-color: rgb(100, 100, 100);
+
+  --heightLogotype: 3rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @include fluid-text(18, 16);
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--font-color);
+  background: var(--background-color-website);
+}
+
+h1 {
+  @include fluid-text(40, 28);
+}
+
+h2 {
+  @include fluid-text(36, 26);
+}
+
+h3 {
+  @include fluid-text(32, 24);
+}
+
+h4 {
+  @include fluid-text(28, 22);
+}
+
+h5 {
+  @include fluid-text(24, 20);
+}
+
+h6 {
+  @include fluid-text(20, 18);
+}
+
+button,
+input {
+  color: var(--font-color);
+  font-weight: 900;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+hr {
+  width: 100%;
+  height: 0.0625rem;
+  border: none;
+  background-color: var(--border-cell-color);
+}
+
+#root {
+  width: 100%;
+  max-width: 75rem;
+  box-sizing: border-box;
+  padding: 1.25rem;
+  margin: auto;
+
+  * {
+    animation: spawnContent 0.6s ease;
+  }
+}
+
+@keyframes spawnContent {
+  0% {
+    transform: translateY(-6.25rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

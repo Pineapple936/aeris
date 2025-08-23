@@ -1,0 +1,48 @@
+@use "@/styles/mixin" as *;
+
+.factTemperature {
+  @include opacityText;
+}
+
+.differenceTemperature {
+  --color: black;
+  --beforeClassPosition: 0;
+  position: relative;
+  width: 100%;
+  height: 0.4rem;
+  margin-top: 0.625rem;
+  border-radius: 0.625rem;
+  background-color: var(--border-cell-color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: var(--beforeClassPosition);
+    transform: translateY(-50%);
+    width: 0.25rem;
+    height: 1.25rem;
+    border-radius: 0.625rem;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0 0 0.625rem 0.125rem black;
+  }
+
+  .progressLine {
+    position: absolute;
+    top: 0;
+    height: inherit;
+    background-color: var(--color);
+
+    .temperature {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: max-content;
+      padding: 0 0.25rem;
+      border-radius: 1.25rem;
+      font-size: 0.9rem;
+      background-color: var(--color);
+    }
+  }
+}

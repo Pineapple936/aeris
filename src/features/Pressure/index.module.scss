@@ -1,0 +1,52 @@
+.circle {
+  $height: 9.5rem;
+  position: relative;
+  height: $height;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+  margin-top: 0.5rem;
+
+  .currentValue {
+    position: absolute;
+    top: -0.3125rem;
+    left: 50%;
+    width: 0.3125rem;
+    height: 1.25rem;
+    border-radius: 0.625rem;
+    background-color: var(--font-color);
+    box-shadow: 0 0 1rem 0.0625rem var(--font-color);
+    transform-origin: center calc(#{$height} / 2 + 0.3125rem);
+    z-index: 10;
+  }
+
+  .tick {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0.125rem;
+    height: 0.625rem;
+    background: var(--border-cell-color);
+    transform-origin: center calc(#{$height} / 2);
+  }
+
+  .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+    width: max-content;
+    line-height: 1;
+  }
+
+  .arrows {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.8em;
+    margin: 0 0.625rem;
+  }
+}

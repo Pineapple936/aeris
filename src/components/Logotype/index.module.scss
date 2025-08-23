@@ -1,0 +1,27 @@
+.logotypeWebsite {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: var(--heightLogotype);
+  box-sizing: border-box;
+  padding-right: 2rem;
+  margin-top: 0.625rem;
+  background-color: var(--background-color-website);
+  z-index: 11;
+
+  .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate((-50%, -50%));
+    height: 2.6rem;
+    aspect-ratio: 1 / 1;
+
+    img {
+      border-radius: 0.625rem;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.progressBar {
+  position: relative;
+  width: 100%;
+  max-width: 18.75rem;
+  height: 0.4rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(90deg, green, yellow, red, purple);
+
+  &::before {
+    $width: 0.4rem;
+    content: "";
+    position: absolute;
+    left: clamp(0%, calc(var(--progress) * 10%), calc(100% - $width - 5px));
+    top: 50%;
+    transform: translateY(-50%);
+    width: $width;
+    aspect-ratio: 1 / 1;
+    border: black solid 0.2rem;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.9;
+  }
+}

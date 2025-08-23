@@ -1,0 +1,24 @@
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.3125rem;
+  height: 100%;
+  width: 100%;
+
+  .image {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .probablyRain {
+    margin-top: 0.3125rem;
+    line-height: 0.8;
+    font-size: 0.8rem;
+    color: #00bcff;
+    text-shadow: 0px 0px 0.625rem blue;
+  }
+}

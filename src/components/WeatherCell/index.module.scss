@@ -1,0 +1,59 @@
+@use "@/styles/mixin" as *;
+
+.cell {
+  $padding: 0.5rem;
+  $borderRadius: 0.9375rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 8rem;
+  border-bottom-left-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+  background: var(--cell-background-color);
+  padding-bottom: $padding;
+
+  &__title {
+    @include backgroundColorWeatherCell;
+    position: sticky;
+    top: var(--heightLogotype);
+    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $padding;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    will-change: transform;
+    transform: translate(0, 0, 0);
+
+    &::before {
+      border-radius: 0;
+    }
+
+    p {
+      @include opacityText;
+
+      i {
+        margin-right: 0.3125rem;
+      }
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.625rem;
+    padding: 0 $padding;
+    white-space: pre-line;
+
+    &--row {
+      flex-direction: row;
+    }
+  }
+
+  &__description {
+    margin-top: 0.35rem;
+    font-weight: 500;
+  }
+}

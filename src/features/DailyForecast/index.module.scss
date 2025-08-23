@@ -1,0 +1,30 @@
+@use "@/styles/mixin" as *;
+
+.rowElementInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.375rem;
+  border-top: 0.125rem solid var(--border-cell-color);
+
+  .dayOfTheWeek {
+    width: 6rem;
+  }
+
+  .iconWrapper {
+    height: 95%;
+  }
+
+  .temperature {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    width: 30%;
+    min-width: max-content;
+    font-size: 1.3em;
+
+    span:nth-child(1) {
+      @include opacityText;
+    }
+  }
+}

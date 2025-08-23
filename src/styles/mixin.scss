@@ -1,0 +1,45 @@
+@use "sass:math";
+
+@mixin backgroundColorWeatherCell {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  &::after {
+    background-color: var(--cell-background-color);
+    z-index: 0;
+  }
+  &::before {
+    background-color: var(--background-color-website);
+    z-index: -1;
+  }
+}
+
+@mixin opacityText {
+  opacity: 0.4;
+}
+
+@mixin fluid-text($max: 48, $min: 16) {
+  $maxViewportWidth: 1400;
+  $minViewportWidth: 360;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  font-size: clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}

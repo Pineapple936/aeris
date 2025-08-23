@@ -1,0 +1,127 @@
+@use "@/styles/mixin" as *;
+
+.infoWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span:nth-child(2) {
+      @include opacityText;
+      font-weight: 700;
+    }
+  }
+}
+
+.wrapperCompass {
+  --heightCircle: 10.625rem;
+  --widthDash: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--heightCircle);
+  padding: 1rem;
+  overflow: hidden;
+
+  .compass {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+
+    .dash {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: var(--widthDash);
+      height: 0.1rem;
+      transform-origin: calc(var(--heightCircle) / 2) center;
+      background-color: var(--border-cell-color);
+    }
+
+    .direction {
+      @include backgroundColorWeatherCell;
+      --deg: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(var(--deg))
+        translateY(calc(var(--heightCircle) / -2 + var(--widthDash) / 2));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 10rem;
+      aspect-ratio: 1 / 1;
+      font-size: 0.9rem;
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+
+      span {
+        transform: rotate(calc(-1 * var(--deg)));
+      }
+    }
+
+    .arrow {
+      $color: var(--font-color);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.1875rem;
+      height: 100%;
+      background-color: $color;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -0.1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        border-bottom: 1rem solid $color;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0.7rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: $color;
+      }
+    }
+
+    .blockInfo {
+      @include backgroundColorWeatherCell;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-content: center;
+      text-align: center;
+      width: calc(var(--heightCircle) / 2);
+      aspect-ratio: 1 / 1;
+      padding: 0.15rem;
+      border-radius: 50%;
+      font-size: 1.1em;
+    }
+  }
+}
+
+@media (max-width: 31.25rem) {
+  .wrapperCompass {
+    --heightCircle: 25vw;
+  }
+}
