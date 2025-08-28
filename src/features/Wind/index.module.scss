@@ -79,7 +79,7 @@
       &::before {
         content: "";
         position: absolute;
-        top: -0.1rem;
+        top: -0.3rem;
         left: 50%;
         transform: translateX(-50%);
         width: 0;
@@ -92,7 +92,7 @@
       &::after {
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -0.3rem;
         left: 50%;
         transform: translateX(-50%);
         width: 0.7rem;
